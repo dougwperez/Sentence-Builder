@@ -12,10 +12,26 @@
     <body>
       <h1>Hello World</h1>
 
+      <div class="viewer">
+        <li class="time">00:05</li>
+        <li class="score">5</li>
+      </div>
+
+      <div class="gameOverModal" id="gameOverModal">
+        <button class="closebtn" onclick="hidebox()">X</button>
+        <h2>How to Play</h2>
+        <span class="text">
+          First unscramble all the words in the green boxes, the order in which
+          you do so is unimportant. After unscrambling the words, you must put
+          the new words in the blue boxes in the correct order. If you have any
+          difficulty, press the "Need a hint?" button.
+        </span>
+      </div>
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.1/Sortable.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
       <script src="script.js"></script>
-    </body></html
-></DOCTYPE>
->
+    </body>
+  </html>
+</DOCTYPE>
