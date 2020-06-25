@@ -1,42 +1,35 @@
-function getTimeRemaining(endtime) {
-  const total = Date.parse(endtime) - Date.parse(new Date());
-  const seconds = Math.floor((total / 1000) % 60);
-  const minutes = Math.floor((total / 1000 / 60) % 60);
-  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-  const days = Math.floor(total / (1000 * 60 * 60 * 24));
-
-  return {
-    total,
-    days,
-    hours,
+function startTimer(duration, display) {
+  var timer = duration,
     minutes,
-    seconds,
-  };
-}
+    seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
-function initializeClock(id, endtime) {
-  const clock = document.getElementById(id);
-  const daysSpan = clock.querySelector(".days");
-  const hoursSpan = clock.querySelector(".hours");
-  const minutesSpan = clock.querySelector(".minutes");
-  const secondsSpan = clock.querySelector(".seconds");
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  function updateClock() {
-    const t = getTimeRemaining(endtime);
+    display.textContent = minutes + ":" + seconds;
 
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
-    minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
-
-    if (t.total <= 0) {
-      clearInterval(timeinterval);
+    if (--timer < 0) {
+      timer = duration;
     }
-  }
+  }, 1000);
 
-  updateClock();
-  const timeinterval = setInterval(updateClock, 1000);
+  if (timer == 4) {
+    console.log("yess");
+  }
 }
 
-const deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-initializeClock("clockdiv", deadline);
+window.onload = function () {
+  var fiveMinutes = 5,
+    display = document.querySelector(".time");
+  startTimer(fiveMinutes, display);
+};
+
+function gameover() {
+  gameOverModal.style.display = "block";
+  console.log("Game Over");
+}
+
+setTimeout(gameover, 5 * 60 * 1000);
