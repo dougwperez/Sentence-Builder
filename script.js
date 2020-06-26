@@ -1,78 +1,54 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+function startTimer(duration, display) {
+  var timer = duration,
+    minutes,
+    seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+  }, 1000);
+
+  if (timer == 4) {
+    console.log("yess");
+  }
 }
 
-.gameOverModal {
-  display: none;
-  line-height: 290%;
-  text-align: justify;
-  position: relative;
-  overflow-y: auto;
+window.onload = function () {
+  var fiveMinutes = 5,
+    display = document.querySelector("#time");
+  startTimer(fiveMinutes, display);
+};
 
-  max-height: 800px;
-  top: -20%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 100%;
-  max-width: 45%;
-  height: 40%;
-  padding: 1.5em;
-  border: 2px solid black;
-
-  background-image: -webkit-linear-gradient(bottom, #f4e2c9 20%, #f4d7c9 100%);
-  background-image: -ms-linear-gradient(bottom, #f4e2c9 20%, #f4d7c9 100%);
-  background-image: linear-gradient(to bottom, #f4e2c9 20%, #f4d7c9 100%);
+function gameover() {
+  gameOverModal.style.display = "block";
+  console.log("Game Over");
 }
 
-.closebtn {
-  font-size: 30px;
-  padding: 0.2em 0.4em 0.2em 0.4em;
-  float: right;
-  font-family: arial;
-  background-color: #f90b6d;
-  color: white;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-.closebtn:hover {
-  opacity: 1;
-}
+setTimeout(gameover, 5 * 60 * 1000);
 
-.viewer {
-  list-style-type: none;
-  flex: auto;
-  width: 249px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  font-size: 1.05em;
+//Sector 2 sentences
 
-  font-family: sans-serif;
-  background-color: lightgrey;
-  border: 2px inset;
+var el = document.getElementById("myUl");
+var sortable = Sortable.create(el);
 
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  cursor: pointer;
-}
+var array = [];
 
-.span {
-  float: left;
-  display: inline;
-}
+array.forEach(function (item) {
+  var li = document.createElement("li");
+  var text = document.createTextNode(item);
+  li.appendChild(text);
+  document.getElementById("myUl").appendChild(li);
+});
 
-.span a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 13px;
-  text-decoration: none;
-}
-
-.span a:hover {
-  background-color: #f90b6d;
-}
+new Sortable(example2Left, {
+  group: "shared", // set both lists to same group
+  animation: 150,
+});
