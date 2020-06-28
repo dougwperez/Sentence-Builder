@@ -36,19 +36,18 @@ setTimeout(gameover, 5 * 60 * 1000);
 
 //Sector 2 sentences
 
-var el = document.getElementById("myUl");
-var sortable = Sortable.create(el);
+//var el = document.getElementById("example1");
+//var sortable = Sortable.create(el);
 
-var array = [];
+var el = document.getElementById("example1");
+var example2 = document.getElementById("example2");
 
-array.forEach(function (item) {
-  var li = document.createElement("li");
-  var text = document.createTextNode(item);
-  li.appendChild(text);
-  document.getElementById("myUl").appendChild(li);
+new Sortable(el, {
+  group: "shared", // set both lists to same group
+  animation: 150,
 });
 
-new Sortable(example2Left, {
-  group: "shared", // set both lists to same group
+new Sortable(example2, {
+  group: "shared",
   animation: 150,
 });
