@@ -41,6 +41,7 @@ setTimeout(gameover, 5 * 60 * 1000);
 
 var el = document.getElementById("example1");
 var example2 = document.getElementById("example2");
+var example3 = document.getElementById("example3");
 
 new Sortable(el, {
   group: "shared", // set both lists to same group
@@ -51,3 +52,45 @@ new Sortable(example2, {
   group: "shared",
   animation: 150,
 });
+
+new Sortable(example3, {
+  group: "shared",
+  animation: 150,
+});
+
+//console.log(example2.textContent); must equal finalanswer
+
+var finalAnswer = ["Iworks", "Hopeit"];
+var realAnswer;
+
+//SCORE LOGIC
+var scoreCard = document.getElementById("counter"),
+  score = 0;
+
+function win() {
+  score += 1;
+  document.getElementById("counter").innerHTML = "Score: " + score;
+}
+
+var observer = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    //console.log($(mutation.removedNodes)); // <<-- includes text nodes
+
+    //note you can remove the break statments if the desired outcome is the exact same
+    $(mutation.removedNodes).each(function (value, index) {
+      if (finalAnswer.includes(example2.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example3.textContent)) {
+        console.log("win");
+        win();
+      }
+    });
+  });
+});
+
+var config = { attributes: true, childList: true, characterData: true };
+
+observer.observe($("#example2")[0], config);
+
+observer.observe($("#example3")[0], config);
