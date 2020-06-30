@@ -142,6 +142,10 @@ function win() {
   document.getElementById("counter").innerHTML = "Score: " + score;
 }
 
+const scoreSound = new Audio();
+scoreSound.src = "score.mp3";
+scoreSound.volume = 0.5;
+
 var observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     //console.log($(mutation.removedNodes)); // <<-- includes text nodes
@@ -150,33 +154,55 @@ var observer = new MutationObserver(function (mutations) {
     $(mutation.removedNodes).each(function (value, index) {
       if (finalAnswer.includes(example1.textContent)) {
         console.log("win");
+        console.log(example1.textContent.length);
+        score += example1.textContent.length;
+        $("words").css("background", "#red");
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example2.textContent)) {
         console.log("win");
+        score += example2.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example3.textContent)) {
         console.log("win");
+        score += example3.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example4.textContent)) {
         console.log("win");
+        score += example4.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example5.textContent)) {
         console.log("win");
+        score += example5.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example6.textContent)) {
         console.log("win");
+        score += example6.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example7.textContent)) {
         console.log("win");
+        score += example7.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example8.textContent)) {
         console.log("win");
+        score += example8.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example9.textContent)) {
         console.log("win");
+        score += example9.textContent.length;
+        scoreSound.play();
         win();
       } else if (finalAnswer.includes(example10.textContent)) {
         console.log("win");
+        score += example10.textContent.length;
+        scoreSound.play();
         win();
       }
     });
