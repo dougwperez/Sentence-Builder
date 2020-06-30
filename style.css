@@ -135,16 +135,18 @@ html {
 #eraser {
   border: 0;
   position: fixed;
-  top: calc(70% - 185px);
-  left: calc(-4.5%);
-  -webkit-transform: rotate(+90deg);
+  top: calc(96% - 185px);
+  left: calc(9%);
 
   z-index: 10;
 }
 
 #chalk {
-  width: 8%;
-  height: 8%;
+  position: fixed;
+  width: 7%;
+  height: 7%;
+  top: calc(97% - 120px);
+  -webkit-transform: rotate(-3deg);
 }
 
 #words li {
