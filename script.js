@@ -22,7 +22,7 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
-  var fiveMinutes = 5,
+  var fiveMinutes = 10,
     display = document.querySelector("#time");
   startTimer(fiveMinutes, display);
 };
@@ -32,19 +32,47 @@ function gameover() {
   console.log("Game Over");
 }
 
-setTimeout(gameover, 5 * 60 * 1000);
+//setTimeout(gameover, 10 * 1000 + 1200);
+
+//NOT THIS ONE
+//setTimeout(gameover, 5 * 60 * 1000);
 
 //Sector 2 sentences
 
 //var el = document.getElementById("example1");
 //var sortable = Sortable.create(el);
 
-var el = document.getElementById("example1");
+var words = document.getElementById("words");
+var words1 = document.getElementById("words1");
+var words2 = document.getElementById("words2");
+var example1 = document.getElementById("example1");
 var example2 = document.getElementById("example2");
 var example3 = document.getElementById("example3");
+var example4 = document.getElementById("example4");
+var example5 = document.getElementById("example5");
+var example6 = document.getElementById("example6");
+var example7 = document.getElementById("example7");
+var example8 = document.getElementById("example8");
+var example9 = document.getElementById("example9");
+var example10 = document.getElementById("example10");
 
-new Sortable(el, {
+new Sortable(words, {
   group: "shared", // set both lists to same group
+  animation: 150,
+});
+
+new Sortable(words1, {
+  group: "shared", // set both lists to same group
+  animation: 150,
+});
+
+new Sortable(words2, {
+  group: "shared", // set both lists to same group
+  animation: 150,
+});
+
+new Sortable(example1, {
+  group: "shared",
   animation: 150,
 });
 
@@ -58,9 +86,51 @@ new Sortable(example3, {
   animation: 150,
 });
 
+new Sortable(example4, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(example5, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(example6, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(example7, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(example8, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(example9, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(example10, {
+  group: "shared",
+  animation: 150,
+});
+
 //console.log(example2.textContent); must equal finalanswer
 
-var finalAnswer = ["Iworks", "Hopeit"];
+var finalAnswer = [
+  "Thedogwalkshome",
+  "Mydogwalkshome",
+  "Ihopeitworks",
+  "loveit",
+  "Sheplaysvideogames",
+  "Myparentslovegoingtodinner",
+];
 var realAnswer;
 
 //SCORE LOGIC
@@ -78,10 +148,34 @@ var observer = new MutationObserver(function (mutations) {
 
     //note you can remove the break statments if the desired outcome is the exact same
     $(mutation.removedNodes).each(function (value, index) {
-      if (finalAnswer.includes(example2.textContent)) {
+      if (finalAnswer.includes(example1.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example2.textContent)) {
         console.log("win");
         win();
       } else if (finalAnswer.includes(example3.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example4.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example5.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example6.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example7.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example8.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example9.textContent)) {
+        console.log("win");
+        win();
+      } else if (finalAnswer.includes(example10.textContent)) {
         console.log("win");
         win();
       }
@@ -91,6 +185,13 @@ var observer = new MutationObserver(function (mutations) {
 
 var config = { attributes: true, childList: true, characterData: true };
 
+observer.observe($("#example1")[0], config);
 observer.observe($("#example2")[0], config);
-
 observer.observe($("#example3")[0], config);
+observer.observe($("#example4")[0], config);
+observer.observe($("#example5")[0], config);
+observer.observe($("#example6")[0], config);
+observer.observe($("#example7")[0], config);
+observer.observe($("#example8")[0], config);
+observer.observe($("#example9")[0], config);
+observer.observe($("#example10")[0], config);
