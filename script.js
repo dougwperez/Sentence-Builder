@@ -74,6 +74,7 @@ new Sortable(words2, {
 new Sortable(example1, {
   group: "shared",
   animation: 150,
+  disabled: false,
 });
 
 new Sortable(example2, {
@@ -123,14 +124,6 @@ new Sortable(example10, {
 
 //console.log(example2.textContent); must equal finalanswer
 
-var finalAnswer = [
-  "Thedogwalkshome",
-  "Mydogwalkshome",
-  "Ihopeitworks",
-  "loveit",
-  //"Sheplaysvideogames",
-  "Myparentslovegoingtodinner",
-];
 var realAnswer;
 
 //SCORE LOGIC
@@ -140,9 +133,8 @@ var scoreCard = document.getElementById("counter"),
 function win() {
   score += 1;
   document.getElementById("counter").innerHTML = "Score: " + score;
+  scoreSound.play();
 }
-
-var text = document.createTextNode("  Correct!");
 
 const scoreSound = new Audio();
 scoreSound.src = "score.mp3";
@@ -155,40 +147,50 @@ var observer = new MutationObserver(function (mutations) {
     //note you can remove the break statments if the desired outcome is the exact same
     $(mutation.removedNodes).each(function (value, index) {
       if (finalAnswer.includes(example1.textContent)) {
-        console.log("win");
-        console.log(example1.textContent.length);
         score += example1.textContent.length;
-        $("words").css("background", "#red");
-        scoreSound.play();
         win();
-        var ex1 = document.getElementById("example1");
-        ex1.appendChild(text);
-
         function color1(thecolor, thetext) {
           var span = document.getElementById("example1");
+          var text1 = document.createTextNode("   Correct!");
+          span.style.pointerEvents = "none";
           span.style.color = "green";
-          span.style.fontSize = "25px";
-          //span.innerText = example1.thetext;
+          span.style.fontSize = "24px";
+          span.appendChild(text1);
           return span;
         }
-        //color1();
+        color1();
       }
 
       if (finalAnswer.includes(example2.textContent)) {
-        console.log("win");
         score += example2.textContent.length;
-        scoreSound.play();
         win();
-        example2.appendChild(text);
+        function color2(thecolor, thetext) {
+          var span = document.getElementById("example2");
+          var text2 = document.createTextNode("  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text2);
+          return span;
+        }
+        color2();
       }
 
       if (finalAnswer.includes(example3.textContent)) {
-        console.log("win");
         score += example3.textContent.length;
-        scoreSound.play();
-        example3.appendChild(text);
         win();
-      } /*else if (finalAnswer.includes(example4.textContent)) {
+        function color3(thecolor, thetext) {
+          var span = document.getElementById("example3");
+          var text3 = document.createTextNode("  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text3);
+          return span;
+        }
+        color3();
+      }
+      /*else if (finalAnswer.includes(example4.textContent)) {
         console.log("win");
         score += example4.textContent.length;
         scoreSound.play();
