@@ -128,7 +128,7 @@ var finalAnswer = [
   "Mydogwalkshome",
   "Ihopeitworks",
   "loveit",
-  "Sheplaysvideogames",
+  //"Sheplaysvideogames",
   "Myparentslovegoingtodinner",
 ];
 var realAnswer;
@@ -141,6 +141,8 @@ function win() {
   score += 1;
   document.getElementById("counter").innerHTML = "Score: " + score;
 }
+
+var text = document.createTextNode("  Correct!");
 
 const scoreSound = new Audio();
 scoreSound.src = "score.mp3";
@@ -159,17 +161,34 @@ var observer = new MutationObserver(function (mutations) {
         $("words").css("background", "#red");
         scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example2.textContent)) {
+        var ex1 = document.getElementById("example1");
+        ex1.appendChild(text);
+
+        function color1(thecolor, thetext) {
+          var span = document.getElementById("example1");
+          span.style.color = "green";
+          span.style.fontSize = "25px";
+          //span.innerText = example1.thetext;
+          return span;
+        }
+        //color1();
+      }
+
+      if (finalAnswer.includes(example2.textContent)) {
         console.log("win");
         score += example2.textContent.length;
         scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example3.textContent)) {
+        example2.appendChild(text);
+      }
+
+      if (finalAnswer.includes(example3.textContent)) {
         console.log("win");
         score += example3.textContent.length;
         scoreSound.play();
+        example3.appendChild(text);
         win();
-      } else if (finalAnswer.includes(example4.textContent)) {
+      } /*else if (finalAnswer.includes(example4.textContent)) {
         console.log("win");
         score += example4.textContent.length;
         scoreSound.play();
@@ -203,8 +222,7 @@ var observer = new MutationObserver(function (mutations) {
         console.log("win");
         score += example10.textContent.length;
         scoreSound.play();
-        win();
-      }
+        win(); */
     });
   });
 });
@@ -214,10 +232,11 @@ var config = { attributes: true, childList: true, characterData: true };
 observer.observe($("#example1")[0], config);
 observer.observe($("#example2")[0], config);
 observer.observe($("#example3")[0], config);
-observer.observe($("#example4")[0], config);
+/*observer.observe($("#example4")[0], config);
 observer.observe($("#example5")[0], config);
 observer.observe($("#example6")[0], config);
 observer.observe($("#example7")[0], config);
 observer.observe($("#example8")[0], config);
 observer.observe($("#example9")[0], config);
-observer.observe($("#example10")[0], config);
+observer.observe($("#example10")[0], config); 
+*/
