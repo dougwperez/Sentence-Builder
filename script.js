@@ -22,7 +22,7 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
-  var fiveMinutes = 10,
+  var fiveMinutes = 300,
     display = document.querySelector("#time");
   startTimer(fiveMinutes, display);
 };
@@ -32,7 +32,9 @@ function gameover() {
   console.log("Game Over");
 }
 
-//setTimeout(gameover, 10 * 1000 + 1200);
+// must add 1200 to make accurate
+setTimeout(gameover, 5 * 60 * 1000 + 1200);
+//setTimeout(gameover, 60 * 1000 + 1200);
 
 //NOT THIS ONE
 //setTimeout(gameover, 5 * 60 * 1000);
@@ -241,4 +243,16 @@ observer.observe($("#example7")[0], config);
 observer.observe($("#example8")[0], config);
 observer.observe($("#example9")[0], config);
 observer.observe($("#example10")[0], config); 
+
+//FROM HTML MODAL
+<div class="gameOverModal" id="gameOverModal">
+        <button class="closebtn" onclick="hidebox()">X</button>
+        <h2>Game Over</h2>
+        <span class="text">
+          First unscramble all the words in the green boxes, the order in which
+          you do so is unimportant. After unscrambling the words, you must put
+          the new words in the blue boxes in the correct order. If you have any
+          difficulty, press the "Need a hint?" button.
+        </span>
+      </div>
 */
