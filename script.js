@@ -59,17 +59,19 @@ var example9 = document.getElementById("example9");
 var example10 = document.getElementById("example10");
 
 new Sortable(words, {
-  group: "shared", // set both lists to same group
+  group: "shared",
   animation: 150,
+  pull: "clone",
 });
 
 new Sortable(words1, {
-  group: "shared", // set both lists to same group
+  group: "shared",
   animation: 150,
+  pull: "clone",
 });
 
 new Sortable(words2, {
-  group: "shared", // set both lists to same group
+  group: "shared",
   animation: 150,
 });
 
@@ -126,10 +128,8 @@ new Sortable(example10, {
 
 //console.log(example2.textContent); must equal finalanswer
 
-var realAnswer;
-
 //SCORE LOGIC
-var scoreCard = document.getElementById("counter"),
+let scoreCard = document.getElementById("counter"),
   score = 0;
 
 function win() {
@@ -142,7 +142,7 @@ const scoreSound = new Audio();
 scoreSound.src = "score.mp3";
 scoreSound.volume = 0.5;
 
-var observer = new MutationObserver(function (mutations) {
+let observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     //console.log($(mutation.removedNodes)); // <<-- includes text nodes
 
@@ -151,82 +151,145 @@ var observer = new MutationObserver(function (mutations) {
       if (finalAnswer.includes(example1.textContent)) {
         score += example1.textContent.length;
         win();
-        function color1(thecolor, thetext) {
-          var span = document.getElementById("example1");
-          var text1 = document.createTextNode("   Correct!");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example1");
+          let text = document.createTextNode(".   Correct!");
           span.style.pointerEvents = "none";
           span.style.color = "green";
           span.style.fontSize = "24px";
-          span.appendChild(text1);
+          span.appendChild(text);
           return span;
         }
-        color1();
+        correct();
       }
 
       if (finalAnswer.includes(example2.textContent)) {
         score += example2.textContent.length;
         win();
-        function color2(thecolor, thetext) {
-          var span = document.getElementById("example2");
-          var text2 = document.createTextNode("  Correct!");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example2");
+          let text = document.createTextNode(".  Correct!");
           span.style.pointerEvents = "none";
           span.style.color = "green";
           span.style.fontSize = "24px";
-          span.appendChild(text2);
+          span.appendChild(text);
           return span;
         }
-        color2();
+        correct();
       }
 
       if (finalAnswer.includes(example3.textContent)) {
         score += example3.textContent.length;
         win();
-        function color3(thecolor, thetext) {
-          var span = document.getElementById("example3");
-          var text3 = document.createTextNode("  Correct!");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example3");
+          let text = document.createTextNode(".  Correct!");
           span.style.pointerEvents = "none";
           span.style.color = "green";
           span.style.fontSize = "24px";
-          span.appendChild(text3);
+          span.appendChild(text);
           return span;
         }
-        color3();
+        correct();
       }
-      /*else if (finalAnswer.includes(example4.textContent)) {
-        console.log("win");
+      if (finalAnswer.includes(example4.textContent)) {
         score += example4.textContent.length;
-        scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example5.textContent)) {
-        console.log("win");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example4");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
+      if (finalAnswer.includes(example5.textContent)) {
         score += example5.textContent.length;
-        scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example6.textContent)) {
-        console.log("win");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example5");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
+      if (finalAnswer.includes(example6.textContent)) {
         score += example6.textContent.length;
-        scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example7.textContent)) {
-        console.log("win");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example6");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
+      if (finalAnswer.includes(example7.textContent)) {
         score += example7.textContent.length;
-        scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example8.textContent)) {
-        console.log("win");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example7");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
+      if (finalAnswer.includes(example8.textContent)) {
         score += example8.textContent.length;
-        scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example9.textContent)) {
-        console.log("win");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example8");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
+      if (finalAnswer.includes(example9.textContent)) {
         score += example9.textContent.length;
-        scoreSound.play();
         win();
-      } else if (finalAnswer.includes(example10.textContent)) {
-        console.log("win");
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example9");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
+      if (finalAnswer.includes(example10.textContent)) {
         score += example10.textContent.length;
-        scoreSound.play();
-        win(); */
+        win();
+        function correct(thecolor, thetext) {
+          let span = document.getElementById("example10");
+          let text = document.createTextNode(".  Correct!");
+          span.style.pointerEvents = "none";
+          span.style.color = "green";
+          span.style.fontSize = "24px";
+          span.appendChild(text);
+          return span;
+        }
+        correct();
+      }
     });
   });
 });
@@ -236,14 +299,17 @@ var config = { attributes: true, childList: true, characterData: true };
 observer.observe($("#example1")[0], config);
 observer.observe($("#example2")[0], config);
 observer.observe($("#example3")[0], config);
-/*observer.observe($("#example4")[0], config);
+observer.observe($("#example4")[0], config);
 observer.observe($("#example5")[0], config);
 observer.observe($("#example6")[0], config);
 observer.observe($("#example7")[0], config);
 observer.observe($("#example8")[0], config);
 observer.observe($("#example9")[0], config);
-observer.observe($("#example10")[0], config); 
+observer.observe($("#example10")[0], config);
 
+console.log(example2.textContent);
+
+/*
 //FROM HTML MODAL
 <div class="gameOverModal" id="gameOverModal">
         <button class="closebtn" onclick="hidebox()">X</button>
