@@ -1,3 +1,33 @@
+//GAME MODE FUNCTIONALITY
+
+let randomnum = Math.floor(Math.random() * 3) + 1;
+console.log(randomnum);
+//comment out randomnum to use all modes
+randomnum = 1;
+
+let gamea = document.querySelectorAll("#words, #words1, #words2");
+for (let i = 0; i < gamea.length; i++) {
+  randomnum == 1
+    ? (gamea[i].style.display = "block")
+    : (gamea[i].style.display = "none");
+}
+
+let gameb = document.querySelectorAll("#wordsb, #wordsb1, #wordsb2");
+for (let i = 0; i < gameb.length; i++) {
+  randomnum == 2
+    ? (gameb[i].style.display = "block")
+    : (gameb[i].style.display = "none");
+}
+
+let gamec = document.querySelectorAll("#wordsc, #wordsc1, #wordsc2");
+for (let i = 0; i < gamec.length; i++) {
+  randomnum == 3
+    ? (gamec[i].style.display = "block")
+    : (gamec[i].style.display = "none");
+}
+
+//TIMER FUNCTIONALITY
+
 function startTimer(duration, display) {
   var timer = duration,
     minutes,
