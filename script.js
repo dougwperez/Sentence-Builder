@@ -77,6 +77,15 @@ setTimeout(gameover, 5 * 60 * 1000 + 1200);
 var words = document.getElementById("words");
 var words1 = document.getElementById("words1");
 var words2 = document.getElementById("words2");
+
+var wordsb = document.getElementById("wordsb");
+var wordsb1 = document.getElementById("wordsb1");
+var wordsb2 = document.getElementById("wordsb2");
+
+var wordsc = document.getElementById("wordsc");
+var wordsc1 = document.getElementById("wordsc1");
+var wordsc2 = document.getElementById("wordsc2");
+
 var example1 = document.getElementById("example1");
 var example2 = document.getElementById("example2");
 var example3 = document.getElementById("example3");
@@ -93,14 +102,38 @@ new Sortable(words, {
   animation: 150,
   pull: "clone",
 });
-
 new Sortable(words1, {
   group: "shared",
   animation: 150,
   pull: "clone",
 });
-
 new Sortable(words2, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(wordsb, {
+  group: "shared",
+  animation: 150,
+});
+new Sortable(wordsb1, {
+  group: "shared",
+  animation: 150,
+});
+new Sortable(wordsb2, {
+  group: "shared",
+  animation: 150,
+});
+
+new Sortable(wordsc, {
+  group: "shared",
+  animation: 150,
+});
+new Sortable(wordsc1, {
+  group: "shared",
+  animation: 150,
+});
+new Sortable(wordsc2, {
   group: "shared",
   animation: 150,
 });
