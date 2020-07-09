@@ -12,6 +12,7 @@ var finalAnswer = [
   "Thedogislost",
   "Thecowandtheelephantarefighting",
   "Theelephantandthecowarefighting",
+  "Thedogisinthehome",
 
   "Ihopeitworks",
   "Iloveit",
@@ -25,6 +26,11 @@ var finalAnswer = [
   "Ilovevideogames",
   "Ilovedancing",
   "Ifinishedthehomework",
+  "IfinishedMyhomework",
+  "Iworkathome",
+  "Ilovetheelephant",
+  "Ilovethedog",
+  "Ilovethecow",
 
   "Myparentslovegoingtodinner",
   "Mydoglovesgoinghome",
@@ -49,6 +55,10 @@ var finalAnswer = [
   "Myparentsarerunning",
   "Mydogislost",
   "Myparentsarelookingatthewindow",
+  "MycowhatesMyparents",
+  "MyparentsarelookingforMydog",
+  "MydogandIfinisheddinner",
+  "Myparentsaregoingtodinner",
 
   "Sheplaysmanygameswiththedog",
   "Sheplaysgameswiththedog",
@@ -73,6 +83,9 @@ var finalAnswer = [
   "SheisnotkindtoMyparents",
   "ShehatesfightingwithMyparents",
   "shehatesdancing",
+  "Shelovesdancing",
+  "SheisfightingwithMydog",
+  "SheisfightingwithMyparents",
 
   "Heplaysmanygameswiththedog",
   "Heplaysgameswiththedog",
@@ -96,4 +109,10 @@ var finalAnswer = [
   "HeiskindtoMyparents",
   "HeisnotkindtoMyparents",
   "HehatesfightingwithMyparents",
+  "Helovesdancing",
+  "HeisfightingwithMydog",
+  "HeisfightingwithMyparents",
+
+  //randomnum 2
+  "dancingelephant",
 ];
