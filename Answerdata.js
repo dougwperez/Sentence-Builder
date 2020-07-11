@@ -27,11 +27,13 @@ var finalAnswer = [
   "Ilovedancing",
   "Ifinishedthehomework",
   "IfinishedMyhomework",
+  "Myhomeworkisfinished",
   "Iworkathome",
   "Ilovetheelephant",
   "Ilovethedog",
   "Ilovethecow",
   "Ihavedinnerwithmyparents",
+  "IfinishedMydinner",
 
   "Myparentslovegoingtodinner",
   "Mydoglovesgoinghome",
@@ -104,6 +106,12 @@ var finalAnswer = [
   "Sheisnotdancing",
   "Shelovesrunninganddancing",
   "Shelovesdancingandrunning",
+  "Shelovesrunninganddancing",
+  "Shelovesdancingandrunning",
+  "Shelovesthecowandtheelephant",
+  "Shelovestheelephantandthecow",
+  "Shelovesthedogandtheelephant",
+  "Shelovesthedogandthecow",
 
   "Heplaysmanygameswiththedog",
   "Heplaysgameswiththedog",
@@ -139,6 +147,10 @@ var finalAnswer = [
   "Helovesrunning",
   "Helovesrunninganddancing",
   "Helovesdancingandrunning",
+  "Helovesthecowandtheelephant",
+  "Helovestheelephantandthecow",
+  "Helovesthedogandtheelephant",
+  "Helovesthedogandthecow",
 
   //randomnum 2
   "dancingelephant",
