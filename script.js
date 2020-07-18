@@ -3,7 +3,7 @@
 let randomnum = Math.floor(Math.random() * 3) + 1;
 console.log(randomnum);
 //comment out randomnum to use all modes
-randomnum = 1;
+//andomnum = 3;
 
 let gamea = document.querySelectorAll("#words, #words1, #words2");
 for (let i = 0; i < gamea.length; i++) {
@@ -32,7 +32,7 @@ function startTimer(duration, display) {
   var timer = duration,
     minutes,
     seconds;
-  setInterval(function () {
+  var myInterval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -41,20 +41,28 @@ function startTimer(duration, display) {
 
     display.textContent = minutes + ":" + seconds;
 
+    if (timer == 0) {
+      gameover();
+      clearInterval(myInterval);
+    }
+
     if (--timer < 0) {
       timer = duration;
     }
   }, 1000);
-
-  if (timer == 4) {
-    console.log("yess");
-  }
 }
-
+//Time per game mode set here
 window.onload = function () {
-  var fiveMinutes = 300,
-    display = document.querySelector("#time");
-  startTimer(fiveMinutes, display);
+  if (randomnum === 1) {
+    var timeAmount = 10;
+  } else if (randomnum === 2) {
+    timeAmount = 20;
+  } else if (randomnum === 3) {
+    timeAmount = 30;
+  }
+  //var timeAmount = randomnum == 1 ? 10 : 20;
+  display = document.querySelector("#time");
+  startTimer(timeAmount, display);
 };
 
 function gameover() {
@@ -63,7 +71,7 @@ function gameover() {
 }
 
 // must add 1200 to make accurate
-setTimeout(gameover, 5 * 60 * 1000 + 1200);
+//setTimeout(gameover, 5 * 60 * 1000 + 1200);
 //setTimeout(gameover, 60 * 1000 + 1200);
 
 //NOT THIS ONE
