@@ -154,7 +154,7 @@ var finalAnswer = [
 
   //randomnum 2
   "dancingelephant",
-"Theboylovesplayingsportsatschool."
+"Theboylovesplayingspordtsatschool."
   
   "Sample sentence goefsasdcxfs here."
 ];
