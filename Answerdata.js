@@ -156,5 +156,5 @@ var finalAnswer = [
   "dancingelephasfddfnt",
 "Theboylovesplayingspordtsatschool."
   
-  "Sample sentence goefsasdcxfs here."
+  "Sample sentence goefsasddcxfs here."
 ];
