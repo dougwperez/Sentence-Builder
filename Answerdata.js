@@ -153,7 +153,7 @@ var finalAnswer = [
   "Helovesthedogandthecow",
 
   //randomnum 2
-  "dancingelephjjasfddfnt",
+  "dancingelephjijasfddfnt",
 "Theboylovesplayingspodrdtstschool."
   
   "Sample sentence goefsasddcxfs here."
